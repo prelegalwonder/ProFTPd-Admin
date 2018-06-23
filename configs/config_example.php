@@ -24,6 +24,7 @@ $cfg['field_title'] = "title";
 $cfg['field_name'] = "name";
 $cfg['field_company'] = "company";
 $cfg['field_email'] = "email";
+$cfg['field_publickey'] = "publickey";
 $cfg['field_comment'] = "comment";
 $cfg['field_disabled'] = "disabled";
 $cfg['field_login_count'] = "login_count";

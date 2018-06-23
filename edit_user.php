@@ -29,6 +29,7 @@ $field_title    = $cfg['field_title'];
 $field_name     = $cfg['field_name'];
 $field_company  = $cfg['field_company'];
 $field_email    = $cfg['field_email'];
+$field_publickey = $cfg['field_publickey'];
 $field_comment  = $cfg['field_comment'];
 $field_disabled = $cfg['field_disabled'];
 
@@ -134,6 +135,7 @@ if (empty($errormsg) && !empty($_REQUEST["action"]) && $_REQUEST["action"] == "u
                       $field_name     => $_REQUEST[$field_name],
                       $field_email    => $_REQUEST[$field_email],
                       $field_company  => $_REQUEST[$field_company],
+                      $field_publickey  => $_REQUEST[$field_publickey],
                       $field_comment  => $_REQUEST[$field_comment],
                       $field_disabled => $disabled);
     if (!$ac->update_user($userdata)) {
@@ -175,6 +177,7 @@ if (empty($errormsg)) {
   $name     = $user[$field_name];
   $email    = $user[$field_email];
   $company  = $user[$field_company];
+  $publickey  = $user[$field_publickey];
   $comment  = $user[$field_comment];
   $disabled = $user[$field_disabled];
 } else {
@@ -190,6 +193,7 @@ if (empty($errormsg)) {
   $name     = $_REQUEST[$field_name];
   $email    = $_REQUEST[$field_email];
   $company  = $_REQUEST[$field_company];
+  $publickey  = $user[$field_publickey];
   $comment  = $_REQUEST[$field_comment];
   $disabled = isset($_REQUEST[$field_disabled]) ? '1' : '0';
 }
@@ -366,6 +370,13 @@ include ("includes/header.php");
               <input type="text" class="form-control" id="<?php echo $field_company; ?>" name="<?php echo $field_company; ?>" value="<?php echo $company; ?>" placeholder="Enter a company or department" />
             </div>
           </div>
+          <!-- Public Key -->
+            <div class="form-group">
+              <label for "<?php echo $field_publickey; ?>" class="col-sm-4 control-label">Public Key</label>
+              <div class="controls col-sm-8">
+              <textarea class="form-control" id="<?php echo $field_publickey; ?>" name="<?php echo $field_publickey; ?>" rows="4" placeholder="Enter RFC4716 formatted public key here (eg. - ssh-keygen -e -f /path/to/key.pub to get RFC4716 format)"><?php echo $publickey; ?></textarea>
+              </div>
+            </div>
           <!-- Comment -->
           <div class="form-group">
             <label for="<?php echo $field_comment; ?>" class="col-sm-4 control-label">Comment</label>

@@ -132,6 +132,7 @@ if (isset($errormsg)) {
   $name     = $_REQUEST[$field_name];
   $email    = $_REQUEST[$field_email];
   $company  = $_REQUEST[$field_company];
+  $publickey = $_REQUEST[$field_publickey];
   $comment  = $_REQUEST[$field_comment];
   $disabled = isset($_REQUEST[$field_disabled]) ? '1' : '0';
 } else {
@@ -156,7 +157,9 @@ if (isset($errormsg)) {
   $title    = "m";
   $name     = "";
   $email    = "";
+  $publickey = "";
   $company  = "";
+  $publickey  = "";
   $comment  = "";
   $disabled = '0';
 }
@@ -263,6 +266,13 @@ include ("includes/header.php");
               <label for="<?php echo $field_company; ?>" class="col-sm-4 control-label">Company</label>
               <div class="controls col-sm-8">
                 <input type="text" class="form-control" id="<?php echo $field_company; ?>" name="<?php echo $field_company; ?>" value="<?php echo $company; ?>" placeholder="Enter a company or department" />
+              </div>
+            </div>
+            <!-- Public Key -->
+            <div class="form-group">
+              <label for "<?php echo $field_publickey; ?>" class="col-sm-4 control-label">Public Key</label>
+              <div class="controls col-sm-8">
+              <textarea class="form-control" id="<?php echo $field_publickey; ?>" name="<?php echo $field_publickey; ?>" rows="4" placeholder="Enter RFC4716 formatted public key here (eg. - ssh-keygen -e -f /path/to/key.pub to get RFC4716 format)"><?php echo $publickey; ?></textarea>
               </div>
             </div>
             <!-- Comment -->

@@ -290,6 +290,7 @@ class AdminClass {
         $field_name     = $this->config['field_name'];
         $field_company  = $this->config['field_company'];
         $field_email    = $this->config['field_email'];
+        $field_publickey = $this->config['field_publickey'];
         $field_comment  = $this->config['field_comment'];
         $field_disabled = $this->config['field_disabled'];
         $field_last_modified = $this->config['field_last_modified'];
@@ -319,6 +320,7 @@ class AdminClass {
                                   $field_name,
                                   $field_company,
                                   $field_email,
+                                  $field_publickey,
                                   $field_comment,
                                   $field_disabled,
                                   $field_last_modified,
@@ -332,6 +334,7 @@ class AdminClass {
                                   $userdata[$field_name],
                                   $userdata[$field_company],
                                   $userdata[$field_email],
+                                  str_replace('"', '\"', $userdata[$field_publickey]),
                                   $userdata[$field_comment],
                                   $userdata[$field_disabled],
                                   date('Y-m-d H:i:s'));
@@ -573,6 +576,7 @@ class AdminClass {
         $field_name     = $this->config['field_name'];
         $field_company  = $this->config['field_company'];
         $field_email    = $this->config['field_email'];
+        $field_publickey = $this->config['field_publickey'];
         $field_comment  = $this->config['field_comment'];
         $field_disabled = $this->config['field_disabled'];
         $field_last_modified = $this->config['field_last_modified'];
@@ -598,7 +602,7 @@ class AdminClass {
           $passwd_query = sprintf($passwd_format, $field_passwd, $passwd);
         }
 
-        $format = 'UPDATE %s SET %s %s="%s", %s="%s", %s="%s", %s="%s", %s="%s", %s="%s", %s="%s", %s="%s", %s="%s", %s="%s", %s="%s", %s="%s" WHERE %s="%s"';
+        $format = 'UPDATE %s SET %s %s="%s", %s="%s", %s="%s", %s="%s", %s="%s", %s="%s", %s="%s", %s="%s", %s="%s", %s="%s", %s="%s", %s="%s", %s="%s" WHERE %s="%s"';
         $query = sprintf($format, $this->config['table_users'],
                                   $passwd_query,
                                   $field_userid,   $userdata[$field_userid],
@@ -610,6 +614,7 @@ class AdminClass {
                                   $field_name,     $userdata[$field_name],
                                   $field_company,  $userdata[$field_company],
                                   $field_email,    $userdata[$field_email],
+                                  $field_publickey,str_replace('"', '\"', $userdata[$field_publickey]),
                                   $field_comment,  $userdata[$field_comment],
                                   $field_disabled, $userdata[$field_disabled],
                                   $field_last_modified, date('Y-m-d H:i:s'),
